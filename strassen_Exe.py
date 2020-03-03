@@ -15,25 +15,28 @@ def strassen(A, B):
     return A @ B
 
   h = n//2
+
+  A11 = A[:h,:h]
+  A12 = A[:h,h:n]
+  A21 = A[h:n,:h]
+  A22 = A[h:n,h:n]
+  B11 = B[:h,:h]
+  B12 = B[:h,h:n]
+  B21 = B[h:n,:h]
+  B22 = B[h:n,h:n]
 ​
-  A11 = # slice A
-  A12 = # slice A
-  A21 = # slice A
-  A22 = # slice A
-  B11 = # slice B
-  B12 = # slice B
-  B21 = # slice B
-  B22 = # slice B
-​
-  M1 = # call strassen with corresponding matrices
-  M2 = # call strassen with corresponding matrices
-  M3 = # call strassen with corresponding matrices
-  M4 = # call strassen with corresponding matrices
-  M5 = # call strassen with corresponding matrices
-  M6 = # call strassen with corresponding matrices
-  M7 = # call strassen with corresponding matrices
+  M1 = strassen(A11+A22,B11+B22)
+  M2 = strassen(A21+A22,B11)
+  M3 = strassen(A11,B12-B22)
+  M4 = strassen(A22,B21-B11)
+  M5 = strassen(A11+A12,B22)
+  M6 = strassen(A21-A11,B11+B12)
+  M7 = strassen(A12-A22,B21+B22)
 ​
   C = numpy.zeros((n,n))
-  # set C values
+    C[:h,:h]
+    C[:h,h:n]
+    C[h:n,:h]
+    C[h:n,h:n]
 ​
   return C
