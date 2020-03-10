@@ -24,7 +24,7 @@ def strassen(A, B):
   B12 = B[:h,h:n]
   B21 = B[h:n,:h]
   B22 = B[h:n,h:n]
-​
+  
   M1 = strassen(A11+A22,B11+B22)
   M2 = strassen(A21+A22,B11)
   M3 = strassen(A11,B12-B22)
@@ -32,11 +32,10 @@ def strassen(A, B):
   M5 = strassen(A11+A12,B22)
   M6 = strassen(A21-A11,B11+B12)
   M7 = strassen(A12-A22,B21+B22)
-​
+  
   C = numpy.zeros((n,n))
-    C[:h,:h]
-    C[:h,h:n]
-    C[h:n,:h]
-    C[h:n,h:n]
-​
-  return C
+  C[:h,:h]
+  C[:h,h:n]
+  C[h:n,:h]
+  C[h:n,h:n]
+return C
