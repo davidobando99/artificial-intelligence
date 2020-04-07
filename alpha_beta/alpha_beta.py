@@ -18,7 +18,29 @@ def is_game_over(node):
     return False, None
 
 def generate_children(node, chosen_symbol): # TODO: Create a function to generate the children states for minimax evaluation
-    pass
+    lista=None
+    for index in range(0,node.count(None)):
+        if (index==0):
+            lista=[node[:]]
+        else:
+            lista = lista+[node[:]]
+    count =0
+    count2=0
+    for indexes in lista:
+        changed=True
+        for index in range(count,len(indexes)):
+        
+            if indexes[index] is None and changed:
+                indexes[index]=chosen_symbol
+                changed=False
+                count2=index
+        finded=True
+        for i in range(count2,len(indexes)):
+        
+            if node[i]==None and finded:
+                count = i+1
+                finded=False
+    return lista       
 
 def alternate_symbol(symbol):
     return 'o' if symbol == 'x' else 'x'
