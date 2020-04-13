@@ -1,3 +1,4 @@
+#LAURA RUBIO, DAVID OBANDO
 from tic_tac_toe import TicTacToeGame
 
 def play():

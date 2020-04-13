@@ -1,3 +1,4 @@
+#LAURA RUBIO, DAVID OBANDO
 import math
 def is_game_over(node):
     winning_indexes = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -68,7 +69,6 @@ def mini_max_ab(node, is_maximizing_player_turn, chosen_symbol,alpha,beta): # TO
             nodee = eval[1]
             maxi = max(maxi,points)
             alpha = max(alpha,points)
-            print(alpha)
             if beta <=alpha:
                 break
             

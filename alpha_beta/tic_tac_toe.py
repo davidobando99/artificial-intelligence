@@ -1,3 +1,4 @@
+#LAURA RUBIO, DAVID OBANDO
 import re,math
 from alpha_beta import mini_max_ab, is_game_over,generate_children,mini_max
 _PLAYER = "player"
