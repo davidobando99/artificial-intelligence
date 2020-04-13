@@ -58,29 +58,29 @@ def mini_max_ab(node, is_maximizing_player_turn, chosen_symbol,alpha,beta): # TO
 
     children = generate_children(node, chosen_symbol)
 
-    if is_maximizing_player_turn:
+   
+    for child in children:
+        eval = mini_max_ab(child, not is_maximizing_player_turn, alternate_symbol(chosen_symbol),alpha,beta)
         maxi = -math.inf
-        for child in children:
-            eval = mini_max_ab(child, not is_maximizing_player_turn, alternate_symbol(chosen_symbol),alpha,beta)
-            pointsMax = eval[0]
-            nodeMax = eval[1]
-            maxi = max(maxi,pointsMax)
-            alpha = max(alpha,pointsMax)
+        if is_maximizing_player_turn:
+            
+            points = eval[0]
+            nodee = eval[1]
+            maxi = max(maxi,points)
+            alpha = max(alpha,points)
             print(alpha)
             if beta <=alpha:
                 break
-        return (maxi,nodeMax)
-    else: 
-        mini = math.inf
-        for child in children:
-            eval = mini_max_ab(child,not is_maximizing_player_turn, alternate_symbol(chosen_symbol),alpha,beta)
-            pointsMin = eval[0]
-            nodeMin = eval[1]
-            mini = min(mini,pointsMin)
-            beta = min(beta,pointsMin)
+            
+        else: 
+            
+            points = eval[0]
+            nodee = eval[1]
+            maxi = min(maxi,points)
+            beta = min(beta,points)
             if beta <=alpha:
                 break
-        return (mini,nodeMin)
+    return (maxi,child)
 
 def mini_max(node, is_maximizing_player_turn, chosen_symbol):
     game_result = is_game_over(node)
